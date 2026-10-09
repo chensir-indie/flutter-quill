@@ -551,7 +551,7 @@ class Document {
         ops[i + 1].isInsert &&
         ops[i + 1].data is String &&
         (ops[i + 1].data as String).startsWith('\n');
-    if (opInsertEmbed && (i + 1 == ops.length - 1 || !nextOpIsLineBreak)) {
+    if (opInsertEmbed && !nextOpIsLineBreak) {
       // automatically append '\n' for embeddable
       res.push(Operation.insert('\n'));
     }
